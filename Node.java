@@ -1,11 +1,11 @@
-Assignment 7
+//Assignment 7
 
 public class Node{
 	private String data;
 	private Node next;
 	private Node prev;
 	
-	public Node(String d i, Node n){
+	public Node(String d, Node n){
 		data = d;
 		next = n;
 	}
@@ -29,6 +29,11 @@ public class Node{
 
 	public void setPrev(Node p){
 		prev = p;
+	}
+
+	public String toString(){
+		String  s = "["+data+"]->";
+		return s;
 	}
 	
 }

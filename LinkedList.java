@@ -1,4 +1,4 @@
-public class LinkedLink{
+public class LinkedList{
 
 
 	private Node front;
@@ -44,19 +44,20 @@ public class LinkedLink{
 		}else
 			System.out.println("THE LIST APPEARS TO BE EMPTY");
 	}
-	public void addToEnd(Data d){
+	public void addToEnd(String d){
 		Node n = new Node(d, null);
 		if(isEmpty())
 			front = n;
 		else {
 			Node curr = front;
-			while (curr.getNext != null)
+			while (curr.getNext()!= null)
 				curr = curr.getNext();
 			curr.setNext(n);
 		}count++;
 	}
 	public void removeLast(){
-		if(isEmpty)
+		Node curr;
+		if(isEmpty())
 			System.out.println("The List is Emprty");
 		else if(front.getNext()==null)
 			clear();
@@ -101,21 +102,21 @@ public class LinkedLink{
 			for(int i = 0;i<index;i++)
 				curr = curr.getNext();
 			return curr;
-		}
+		}return front;
 	}
-	public void addAll(LinkedLink list){
+	public void addAll(LinkedList list){
 		Node curr = list.getFrontNode();
 		while(curr!=null){
 			addToEnd(curr.getData());
 			curr = curr.getNext();
 		}
 	}
-	public static LinkedList merge(LinkedList list1, LinkedList2){
-		LinkedList list3 = new LInkedList();
+	public static LinkedList merge(LinkedList list1, LinkedList list2){
+		LinkedList list3 = new LinkedList();
 		Node curr = list1.getFrontNode();
 		while(curr!=null){
 			list3.addToEnd(curr.getData());
-			curr = curr.getData();
+			curr = curr.getNext();
 		}
 		curr = list2.getFrontNode();
 		while(curr!=null){
@@ -136,5 +137,14 @@ public class LinkedLink{
 				curr = curr.getNext();
 			}return list2;
 		}
+	}
+
+	public String toString(){
+		String s = "";
+		for(int i = 0; i < size(); i++){
+			s += getNode(i);
+		}
+		s += null;
+		return s;
 	}
 }
